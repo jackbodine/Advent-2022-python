@@ -1,13 +1,13 @@
 data = open("data/day01.txt").read().splitlines()
 
-calories = [0]
-i = 0
+calories: [int] = [0]
+i: int = 0
 for line in data[:-1]:
-    if not line.isnumeric():
+    if line.isnumeric():
+        calories[i] += int(line)
+    else:
         i += 1
         calories.append(0)
-    else:
-        calories[i] += int(line)
 
-
+print(max(calories))
 print(sum(sorted(calories)[-3:]))
