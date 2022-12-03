@@ -12,19 +12,13 @@ item_priorities = 0
 badge_priorities = 0
 for i, rucksack in enumerate(data):
     mid = int(len(rucksack) / 2)
-    compartment_1 = rucksack[:mid]
-    compartment_2 = rucksack[mid:]
 
-    for item in compartment_1:
-        if item in compartment_2:
-            item_priorities += get_priority(item)
-            break
+    item = set(rucksack[:mid]) & set(rucksack[mid:])
+    item_priorities += get_priority(item.pop())
 
     if i % 3 == 0:
-        for c in data[i]:
-            if (c in data[i + 1]) and (c in data[i + 2]):
-                badge_priorities += get_priority(c)
-                break
+        badge = set(data[i]) & set(data[i + 1]) & set(data[i + 2])
+        badge_priorities += get_priority(badge.pop())
 
 print(item_priorities)
 print(badge_priorities)
