@@ -1,6 +1,3 @@
-data = open("data/day03.txt").read().splitlines()
-
-
 def get_priority(c):
     if c.islower():
         return ord(c) - 96
@@ -10,6 +7,8 @@ def get_priority(c):
 
 item_priorities = 0
 badge_priorities = 0
+
+data = open("data/day03.txt").read().splitlines()
 for i, rucksack in enumerate(data):
     mid = int(len(rucksack) / 2)
 
