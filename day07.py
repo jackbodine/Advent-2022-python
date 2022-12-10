@@ -17,8 +17,6 @@ for line in data[1:]:
         for i, v in enumerate(parents):
             x = "".join(["/" + x for x in parents[:i + 1]])
             size_dict[x] += int(line_parts[0])
-    elif line_parts[0] == "dir":
-        size_dict[wd + line_parts[1]] = 0
 
 print(sum([x for x in size_dict.values() if x <= 100000]))
 
