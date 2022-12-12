@@ -16,10 +16,7 @@ while i < len(data):
         print("".join(crt[int((cycle - 20) / 40)]))
 
     row = int(cycle / 40)
-    item = cycle % 40
-
-    item -= 1
-    #print("row:", row, "item:", item)
+    item = (cycle % 40) - 1
     if (item == X) or (item == X + 1) or (item == X - 1):
         crt[row][item] = "#"
 
